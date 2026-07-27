@@ -2,197 +2,82 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>홍대 유흥 블로그 - 찐 경험담 대방출</title>
-<meta name="description" content="홍대 유흥 후기 찐 리뷰 모음. 실제 방문자들이 전하는 생생한 후기, 별점, 꿀팁까지. 유흥 맛집 찾는 놈들은 여기로 와라.">
-<meta name="keywords" content="홍대 유흥, 홍대 유흥 후기, 홍대 술집, 홍대 클럽, 홍대 놀거리, 홍대 야경, 홍대 데이트">
-<meta name="bpaas-design-system" content="brutalist-avantgarde">
-<meta name="bpaas-design-theme" content="kr-acid-yellow">
-<link rel="canonical" href="https://t3b06-hd-night-rv-1.vercel.app">
-<meta property="og:title" content="홍대 유흥 블로그 - 찐 경험담 대방출">
-<meta property="og:description" content="홍대 유흥 후기 찐 리뷰 모음. 실제 방문자들의 생생한 후기, 별점, 꿀팁까지. 유흥 맛집 찾는 놈들은 여기로 와라.">
-<style>
-/* === RESET & BASE === */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { font-size:16px; -webkit-text-size-adjust:100%; }
-body { background:#111; color:#f5f5f5; font-family:'Courier New', Courier, monospace; line-height:1.5; }
-
-/* === DESIGN TOKENS === */
-:root {
-  --acid-yellow: #ccff00;
-  --acid-yellow-dark: #99cc00;
-  --bg-dark: #0d0d0d;
-  --bg-card: #1a1a1a;
-  --text-primary: #f5f5f5;
-  --text-secondary: #aaaaaa;
-  --border-width: 3px;
-  --border-style: solid;
-  --border-color: var(--acid-yellow);
-  --spacing-unit: 1.5rem;
-  --max-width: 1200px;
-}
-
-/* === TYPOGRAPHY === */
-h1, h2, h3, h4, h5, h6 { font-family:'Courier New', Courier, monospace; font-weight:700; text-transform:uppercase; letter-spacing:-0.05em; }
-h1 { font-size:3rem; line-height:1.1; margin-bottom:var(--spacing-unit); }
-h2 { font-size:2rem; margin-bottom:1rem; }
-p, li, a { font-size:1rem; line-height:1.6; }
-a { color:var(--acid-yellow); text-decoration:underline wavy; text-underline-offset:4px; }
-a:hover { color:var(--acid-yellow-dark); }
-
-/* === LAYOUT ASYMMETRIC === */
-header, nav, main, footer {
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:var(--spacing-unit);
-}
-
-/* nav-present, hamburger-menu, responsive-768, tel-link */
-.nav-present {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:var(--border-width) var(--border-style) var(--border-color);
-  padding-bottom:1rem;
-  margin-bottom:2rem;
-}
-.hamburger-menu {
-  display:none;
-  flex-direction:column;
-  cursor:pointer;
-  background:none;
-  border:none;
-  padding:0.5rem;
-}
-.hamburger-menu span {
-  display:block;
-  width:28px;
-  height:3px;
-  background:var(--acid-yellow);
-  margin:4px 0;
-}
-.nav-links {
-  display:flex;
-  gap:1.5rem;
-  list-style:none;
-}
-.nav-links a {
-  font-weight:bold;
-  font-size:1.1rem;
-  text-transform:uppercase;
-}
-.tel-link {
-  text-decoration:none;
-  border:2px solid var(--acid-yellow);
-  padding:0.3rem 1rem;
-  background:var(--acid-yellow);
-  color:#111;
-  font-weight:bold;
-  border-radius:0;
-}
-.tel-link:hover {
-  background:var(--acid-yellow-dark);
-  border-color:var(--acid-yellow-dark);
-}
-@media (max-width:768px) {
-  .hamburger-menu { display:flex; }
-  .nav-links {
-    display:none;
-    flex-direction:column;
-    position:absolute;
-    top:80px;
-    left:0;
-    right:0;
-    background:var(--bg-dark);
-    padding:1rem;
-    border-bottom:var(--border-width) var(--border-style) var(--border-color);
-    z-index:1000;
-  }
-  .nav-links.active { display:flex; }
-  .nav-links li { margin:0.5rem 0; }
-}
-
-/* blog card */
-.blog-card {
-  background:var(--bg-card);
-  border:var(--border-width) var(--border-style) var(--border-color);
-  padding:2rem;
-  margin-bottom:2rem;
-  position:relative;
-}
-.blog-card::before {
-  content:attr(data-label);
-  position:absolute;
-  top:-12px;
-  left:1rem;
-  background:var(--acid-yellow);
-  color:#111;
-  font-weight:bold;
-  padding:0.2rem 0.8rem;
-  text-transform:uppercase;
-  font-size:0.8rem;
-}
-.blog-card h2 {
-  margin-top:0.5rem;
-  border-bottom:2px dashed var(--acid-yellow);
-  padding-bottom:0.5rem;
-}
-.blog-card .meta {
-  font-size:0.85rem;
-  color:var(--text-secondary);
-  margin-bottom:1rem;
-}
-.blog-card p {
-  margin-bottom:1rem;
-}
-.blog-card .highlight {
-  background:var(--acid-yellow);
-  color:#111;
-  padding:0.2rem 0.4rem;
-  font-weight:bold;
-}
-.blog-card .tip-box {
-  border-left:4px solid var(--acid-yellow);
-  padding-left:1rem;
-  margin:1.5rem 0;
-  font-style:italic;
-}
-
-/* footer */
-footer {
-  text-align:center;
-  border-top:var(--border-width) var(--border-style) var(--border-color);
-  padding-top:1.5rem;
-  margin-top:3rem;
-  color:var(--text-secondary);
-}
-</style>
+<title>홍대 유흥 후기 — 블로그</title>
+<meta name="description" content="홍대 유흥을 처음 찾는 방문자를 위해 전문가가 정리한 상세 가이드를 제공합니다. 지역별 특징, 안전 수칙, 시간대별 추천 코스 등을 다룹니다.">
+<meta name="keywords" content="홍대, 유흥, 블로그, 가이드, 밤문화, 클럽, 바, 노래방, 홍대 유흥 가이드">
+<link rel="canonical" href="https://hongdae-night-guide.program-school.online/blog.html">
+<meta property="og:title" content="홍대 유흥 후기 — 블로그">
+<meta property="og:description" content="전문가가 제공하는 홍대 유흥 가이드. 상황별 체크리스트와 FAQ를 통해 안전하고 즐거운 밤을 설계하세요.">
+<meta property="og:url" content="https://hongdae-night-guide.program-school.online/blog.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://hongdae-night-guide.program-school.online/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <nav class="nav-present">
-    <button class="hamburger-menu" aria-label="메뉴 열기" onclick="this.nextElementSibling.classList.toggle('active')">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="/">홈</a></li>
-      <li><a href="/reviews">리뷰</a></li>
-      <li><a href="/blog" class="active">블로그</a></li>
-      <li><a href="/contact">문의</a></li>
-    </ul>
-    <a href="tel:010-1234-5678" class="tel-link">전화 문의</a>
-  </nav>
+<nav class="r-nav-f5al">
+<ul>
+<li><a href="/">홈</a></li>
+<li><a href="/about">소개</a></li>
+<li><a href="/guide">가이드</a></li>
+<li><a href="/blog">블로그</a></li>
+<li><a href="/contact">연락처</a></li>
+</ul>
+</nav>
+
+<header class="n-hero-dd">
+<h1>홍대 유흥 후기 – 전문가 블로그</h1>
+<p>홍대의 다양한 밤문화 옵션을 체계적으로 분석하고, 방문 전 반드시 확인해야 할 체크리스트를 제공합니다.</p>
 </header>
 
-<main>
-  <article class="blog-card" data-label="찐 후기">
-    <h2>홍대 '비스테카' 클럽 완전 정복 – 입장부터 퇴장까지 싹 다 알려준다</h2>
-    <div class="meta">2025년 4월 7일 · 작성자: 홍대찐남</div>
-    <p>야, 홍대 클럽 중에서 제일 핫하다는 <strong>비스테카</strong> 다녀왔다. 원래 나는 클럽 잘 안 가는데, 친구놈이 자기 생일이라니까 어쩔 수 없이 끌려갔지. 근데 가보니까 <span class="highlight">진짜 미쳤어</span>. 입구부터 줄이 장난 아님.</p>
-    <p>처음엔 <strong>30분은 기다리겠지</strong> 했는데, 팁 하나 알려준다. 줄 서 있는 동안 <span class="highlight">여자친구랑 같이 오면</span> 입장료 깎아주더라. 나는 남자 둘이 가서 풀파티였지만… 그래도 꿀팁 공유함.</p>
-    <div class="tip-box">
-      <strong>꿀팁</strong>: 금요일 밤 11시 전에 도착하면 입장료 50% 할인 이벤트 함. 대신 그때는 좀 한산한데, 분위기 타고 싶으면 12시 넘어서 가셈.
-    </div>
-    <p>음악은 <strong>EDM + 힙합 믹스</strong>인데, 디
+<main class="v-side-mmne">
+<section class="n-box-3kx3">
+<h2>1. 시간대별 방문 전략</h2>
+<p>홍대는 오후 8시 이후부터 밤 2시까지가 가장 활발히 움직이는 구간이며, 각 시간대마다 선호되는 장소가 다릅니다. 저녁 초기(20~22시)에는 바와 라운지가 주류를 중심으로 고른 분위기를 제공하므로, 가벼운 대화와 음료를 즐기고 싶은 방문객에게 적합합니다. 반면 심야(23시 이후)에는 클럽과 노래방이 주류를 이루며, 에너지 넘치는 음악과 대규모 인파가 특징입니다. 따라서 인원수와 목적에 따라 시간을 선택하면 만족도가 크게 상승합니다.</p>
+<p>또한, 주중과 주말의 혼잡도 차이를 고려해야 합니다. 주중 평일에는 비교적 여유로운 분위기가 유지되지만, 금요일·토요일은 인파가 급증해 대기 시간이 길어질 수 있습니다. 이 경우 사전 예약이 가능한 바와 클럽을 이용하거나, 대안적인 거리(연남동·상수동)에서 분위기를 전환하는 것이 효율적입니다.</p>
+</section>
+
+<section class="n-box-3kx3">
+<h2>2. 인원 규모와 안전 관리</h2>
+<p>소규모(2~4인) 방문은 바와 라운지를 중심으로 진행하는 것이 안전하고 편리합니다. 이때는 테이블 예약이 가능한 장소를 선택해 사전에 좌석을 확보하고, 알코올 소비량을 조절하는 것이 바람직합니다. 반면 대규모(5인 이상) 파티는 클럽이나 노래방을 이용할 때 사전 입장권 구매와 함께 그룹 전용 라운지를 확인하는 것이 좋습니다. 일부 클럽은 인원 제한을 두고 있으므로, 입장 가능 인원을 미리 파악하고 현장 인원 관리를 철저히 해야 합니다.</p>
+<p>안전 측면에서는 보증금제(보증금 반환) 서비스를 제공하는 숙소형 파티룸을 활용하거나, 대중교통(지하철 2호선 홍대입구역)과 택시 호출 앱을 미리 설정해 비상 상황에 대비하는 것이 권장됩니다. 또한, 개인 소지품 관리와 음주 운전 방지를 위한 대리 운전 서비스를 사전에 예약해 두는 것이 현명한 선택입니다.</p>
+</section>
+
+<section class="n-box-3kx3">
+<h2>3. 목적별 추천 코스</h2>
+<p>친구와의 가벼운 소셜 활동을 목표로 한다면, 이태원 스타일의 퓨전 바와 작은 라이브 공연장이 어우러진 ‘홍대 앞 거리’를 중심으로 1~2곳을 선정합니다. 이곳은 저렴한 가격대와 다양한 음료 메뉴를 제공하여 처음 방문하는 이들에게 친숙합니다.</p>
+<p>음악과 댄스를 중심으로 한 심도 있는 경험을 원한다면, 인디클럽 ‘클럽 오디세이’와 대형 클럽 ‘볼트’를 연결하는 코스를 추천합니다. 이 경로는 전자음악 전문 DJ 라인업과 최신 사운드 시스템을 갖추고 있어, 클럽 문화에 깊이 빠져들고자 하는 방문객에게 최적화된 흐름을 제공합니다.</p>
+<p>마지막으로, 노래방·보드게임·다트 등 복합 엔터테인먼트를 즐기고 싶을 경우, ‘홍대 복합 놀이터’라는 브랜드가 운영하는 3층 복합 시설을 방문합니다. 여기서는 노래방 방을 예약하고, 바로 인근 바에서 음료를 주문해 자유롭게 이동할 수 있는 구조가 마련돼 있어, 활동 전환이 원활합니다.</p>
+</section>
+
+<section class="n-box-3kx3">
+<h2>4. 사전 확인 사항 체크리스트</h2>
+<ul>
+<li>운영 시간: 각 업소는 22시~02시 사이에 영업 종료가 다를 수 있으니 사전 확인.</li>
+<li>예약 여부: 인기가 높은 클럽은 사전 온라인 예약 및 입장권 사전 구매 필요.</li>
+<li>음주 정책: 일부 바는 1인당 최대 음료 수량을 제한하므로, 사전 확인 후 주문.</li>
+<li>입장 연령: 19세 미만 입장이 제한되는 클럽이 있으니 연령 검증 여부 확인.</li>
+<li>보안 및 위생: 코로나19 방역수칙과 소방 안전 설비 점검 여부 확인.</li>
+</ul>
+</section>
+
+<section class="n-box-3kx3">
+<h2>FAQ</h2>
+<dl>
+<dt>Q1. 홍대에서 현금 없이 결제가 가능한가요?</dt>
+<dd>대다수 바와 클럽은 카드 결제와 모바일 결제(Payco, Toss 등)를 지원합니다. 그러나 일부 작은 포장마차는 현금만 받으므로, 최소 현금 10,000원 정도를 준비하는 것이 안전합니다.</dd>
+
+<dt>Q2. 밤 1시 이후에 이동이 불편한데, 어떤 교통수단을 이용하면 좋나요?</dt>
+<dd>홍대입구역은 24시간 운영되는 무인 셔틀과 택시 호출 서비스가 연동돼 있어, 심야에도 안전하게 이동할 수 있습니다. 또한, 밤시간대에 운영되는 ‘심야 버스 7400번’도 활용 가능합니다.</dd>
+
+<dt>Q3. 주말에 클럽 입장 제한이 있나요?</dt>
+<dd>주말은 사전 온라인 티켓 구매가 필수인 경우가 많으며, 입장 가능 인원이 제한됩니다. 티켓이 매진될 경우, 인접한 클럽으로 대체 방문 계획을 세우는 것이 좋습니다.</dd>
+</dl>
+</section>
+</main>
+
+<footer class="r-nav-f5al">
+<p>© 2026 홍대 유흥 가이드. All rights reserved.</p>
+</footer>
 </body>
 </html>
