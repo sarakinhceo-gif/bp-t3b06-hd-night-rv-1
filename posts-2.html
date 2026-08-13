@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b06-hd-night-rv-1</title>
+  <meta name="description" content="t3b06-hd-night-rv-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://hongdae-night-guide.program-school.online/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* === RESET & BASE === */
+ *, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ html {
+ font-size: 16px;
+ scroll-behavior: smooth;
+ }
+ body {
+ background-color: #111111;
+ color: #ffff00;
+ font-family: 'Courier New', Courier, 'Impact', 'Arial Black', monospace;
+ line-height: 1.3;
+ padding: 24px;
+ max-width: none;
+ min-height: 100vh;
+ }
+
+ /* === DESIGN TOKENS === */
+ :root {
+ --primary: #111111;
+ --secondary: #ffff00;
+ --accent: #00ff41;
+ --font-mono: 'Courier New', Courier, 'Impact', 'Arial Black', monospace;
+ --gap: 16px;
+ --pad: 24px;
+ --section-gap: 40px;
+ --border-w: 4px;
+ }
+
+ /* === TYPOGRAPHY === */
+ h1, h2, h3, h4, h5, h6 {
+ font-family: 'Impact', 'Arial Black', monospace;
+ font-weight: 900;
+ text-transform: uppercase;
+ letter-spacing: -0.02em;
+ line-height: 1;
+ }
+ h1 {
+ font-size: clamp(2.8rem, 12vw, 6rem);
+ color: var(--secondary);
+ text-shadow: 6px 6px 0 #00ff41, -4px -4px 0 #ff00ff;
+ margin-bottom: 0.5rem;
+ }
+ h2 {
+ font-size: 2.2rem;
+ border-left: var(--border-w) solid var(--accent);
+ padding-left: 16px;
+ margin-bottom: 24px;
+ transform: skew(-5deg);
+ }
+ p, li, a {
+ font-size: 1.1rem;
+ color: #e0e0e0;
+ }
+ a {
+ color: var(--accent);
+ text-decoration: underline wavy var(--secondary) 2px;
+ }
+ a:hover {
+ background: var(--secondary);
+ color: var(--primary);
+ }
+
+ /* === LAYOUT ASYMMETRIC === */
+ header, nav, main, footer {
+ max-width: 100%;
+ overflow: hidden;
+ }
+
+ /* 네비게이션 */
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 16px 0;
+ border-bottom: var(--border-w) solid var(--secondary);
+ margin-bottom: var(--section-gap);
+ position: relative;
+ }
+ .logo a {
+ font-family: 'Impact', sans-serif;
+ font-size: 2.2rem;
+ color: var(--secondary);
+ text-decoration: none;
+ letter-spacing: -1px;
+ transform: rotate(-2deg);
+ display: inline-block;
+ }
+ .nav-links {
+ display: flex;
+ gap: 24px;
+ list-style: none;
+ }
+ .nav-links a {
+ font-size: 1.2rem;
+ font-weight: bold;
+ text-transform: uppercase;
+ padding: 4px 12px;
+ border: var(--border-w) solid var(--accent);
+ background: var(--primary);
+ transition: all 0.1s ease;
+ }
+ .nav-links a:hover {
+ background: var(--accent);
+ color: var(--primary);
+ transform: scale(0.95) rotate(-2deg);
+ }
+ .hamburger {
+ display: none;
+ flex-direction: column;
+ cursor: pointer;
+ gap: 6px;
+ background: transparent;
+ border: none;
+ padding: 4px;
+ }
+ .hamburger span {
+ display: block;
+ width: 32px;
+ height: 4px;
+ background: var(--secondary);
+ border: 2px solid var(--primary);
+ }
+
+ /* 히어로 */
+ .hero {
+ display: grid;
+ grid-template-columns: 1fr 1.2fr;
+ gap: var(--gap);
+ margin-bottom: var(--section-gap);
+ padding: var(--pad);
+ background: repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 10px, #111111 10px, #111111 20px);
+ border: var(--border-w) solid var(--secondary);
+ position: relative;
+ }
+ .hero::before {
+ content: "🔥 HOT 🔥";
+ position: absolute;
+ top: -16px;
+ left: 40px;
+ background: var(--accent);
+ color: var(--primary);
+ font-weight: bold;
+ padding: 4px 24px;
+ transform: rotate(-8deg);
+ font-size: 1.4rem;
+ border: 3px solid #111;
+ }
+ .hero-text {
+ align-self: center;
+ }
+ .hero-text p {
+ font-size: 1.4rem;
+ margin: 20px 0;
+ background: rgba(0,0,0,0.7);
+ padding: 12px;
+ border-left: 8px solid var(--accent);
+ }
+ .hero-cta {
+ display: inline-block;
+ background: var(--secondary);
+ color: var(--primary);
+ font-size: 1.8rem;
+ font-weight: bold;
+ padding: 12px 36px;
+ text-decoration: none;
+ border: var(--border-w) solid var(--accent);
+ transform: skew(-10deg);
+ transition: 0.1s;
+ }
+ .hero-cta:hover {
+ background: var(--accent);
+ transform: skew(5deg) scale(1.02);
+ }
+ .hero-visual {
+ background: radial-gradient(circle, #ffff00 0%, #00ff41 40%, #111111 70%);
+ min-height: 300px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 5rem;
+ border: var(--border-w) solid var(--secondary);
+ transform: rotate(3deg);
+ }
+
+ /* 섹션 공통 */
+ section {
+ margin-bottom: var(--section-gap);
+ padding: var(--pad);
+ border: var(--border-w) solid var(--secondary);
+ background: #1c1c1c;
+ position: relative;
+ }
+ section:nth-child(odd) {
+ transform: rotate(-1deg);
+ }
+ section:nth-child(even) {
+ transform: rotate(1deg);
+ }
+
+ /* 리뷰 카드 */
+ .review-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: var(--gap);
+ }
+ .review-card {
+ background: #222;
+ padding: 20px;
+ border: var(--border-w) solid var(--accent);
+ box-shadow: 8px 8px 0 rgba(0,255,65,0.3);
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ transition: 0.1s;
+ }
+ .review-card:hover {
+ transform: translate(-4px, -4px);
+ box-shadow: 12px 12px 0 var(--accent);
+ }
+ .review-card .meta {
+ display: flex;
+ justify-content: space-between;
+ font-size: 0.9rem;
+ color: #aaa;
+ border-bottom: 2px dashed var(--secondary);
+ padding-bottom: 8px;
+ }
+ .review-card .stars {
+ color: var(--secondary);
+ font-size: 1.4rem;
+ letter-spacing: 4px;
+ }
+ .review-card blockquote {
+ font-style: normal;
+ font-size: 1.1rem;
+ color: #ddd;
+ margin-top: 8px;
+ border-left: 4px solid var(--accent);
+ padding-left: 12px;
+ }
+ .review-card .author {
+ font-weight: bold;
+ color: var(--accent);
+ margin-top: auto;
+ }
+
+ /* 반응형 */
+ @media (max-width: 768px) {
+ body {
+ padding: 16px;
+ }
+ nav {
+ flex-wrap: wrap;
+ }
+ .nav-links {
+ display: none;
+ width: 100%;
+ flex-direction: column;
+ gap: 12px;
+ margin-top: 16px;
+ background: #111;
+ padding: 16px 0;
+ border-top: var(--border-w) solid var(--secondary);
+ }
+ .nav-links.active {
+ display: flex;
+ }
+ .hamburger {
+ display: flex;
+ }
+ .hero {
+ grid-template-columns: 1fr;
+ text-align: center;
+ }
+ .hero-visual {
+ min-height: 200px;
+ font-size: 3rem;
+ }
+ h1 {
+ font-size: 2.8rem;
+ }
+ h2 {
+ font-size: 1.8rem;
+ transform: none;
+ }
+ section {
+ transform: none !important;
+ }
+ }
+
+ /* 푸터 */
+ footer {
+ margin-top: var(--section-gap);
+ padding-top: 24px;
+ border-top: var(--border-w) solid var(--secondary);
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ align-items: center;
+ gap: 16px;
+ }
+ footer .copy {
+ color: #888;
+ font-size: 0.9rem;
+ }
+ footer .phone a {
+ font-size: 1.6rem;
+ font-weight: bold;
+ color: var(--accent);
+ text-decoration: none;
+ border: 3px solid var(--secondary);
+ padding: 8px 24px;
+ display: inline-block;
+ }
+ footer .phone a:hover {
+ background: var(--secondary);
+ color: var(--primary);
+ }
+
+ /* 유틸 */
+ .btn {
+ display: inline-block;
+ background: var(--secondary);
+ color: var(--primary);
+ padding: 8px 24px;
+ font-weight: bold;
+ border: none;
+ text-decoration: none;
+ font-family: inherit;
+ border: var(--border-w) solid var(--accent);
+ }
+ .glitch-text {
+ animation: glitch 1s infinite;
+ }
+ @keyframes glitch {
+ 0% { transform: skew(0deg, 0deg); }
+ 20% { transform: skew(-3deg, 2deg); }
+ 40% { transform: skew(3deg, -1deg); }
+ 60% { transform: skew(-2deg, -3deg); }
+ 80% { transform: skew(2deg, 1deg); }
+ 100% { transform: skew(0deg, 0deg); }
+ }
+ .listing {
+ list-style: none;
+ margin: 16px 0;
+ }
+ .listing li::before {
+ content: "▶ ";
+ color: var(--accent);
+ font-weight: bold;
+ }
+ hr {
+ border: none;
+ height: var(--border-w);
+ background: var(--secondary);
+ margin: var(--section-gap) 0;
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b06-hd-night-rv-1">
+  <meta property="og:description" content="t3b06-hd-night-rv-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://hongdae-night-guide.program-school.online/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <nav>
+ <div class="logo">
+ <a href="/">🍻 홍대유흥후기</a>
+ </div>
+ <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기">
+ 
+ 
+ 
+ </button>
+ <ul class="nav-links" id="navLinks">
+ <li><a href="#reviews">후기</a></li>
+ <li><a href="#hotplaces">핫플</a></li>
+ <li><a href="#contact">연락</a></li>
+ </ul>
+ </nav>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 39개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0221.html">홍대 유흥 후기 신뢰도를 확인하는 노래방 추천정보 및 이용 단계</a>
+        <p class="post-item__summary">인터넷에 넘쳐나는 정보 속에서 실제 도움 되는 경험담을 골라내는 일은 쉽지 않습니다. 특히 홍대 유흥 후기 등을 검색할 때는 광고성 글과 실제 방문객의 글을 구분하는 안목이 필수적입니다. 객관적인 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0222.html">홍대 유흥 후기 기반 공덕 셔츠룸 추천정보 선택과 가격 판단 기준</a>
+        <p class="post-item__summary">다양한 지역의 유흥 문화를 비교하다 보면 홍대 유흥 후기를 참고하여 인근 지역인 공덕으로 눈길을 돌리는 경우가 많습니다. 공덕 셔츠룸은 각각의 운영 방식에 따라 비용 구조와 서비스 수준이 크게 달라</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0223.html">홍대 유흥 후기 통해 살펴보는 연남 유흥 추천정보와 예약 절차</a>
+        <p class="post-item__summary">많은 이들이 연남 지역의 유흥 문화를 접하려 할 때 홍대 유흥 후기를 먼저 찾아보지만, 정작 예약 과정에서 실패하는 경우가 많습니다. 가장 흔한 실패 지점은 전화나 문자로 소통할 때 명확한 인원과 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0224.html">홍대 유흥 후기 참조 마곡 가라오케 추천정보 확인 항목 체크리스트</a>
+        <p class="post-item__summary">마곡 지역에서 가라오케를 방문할 계획이라면 홍대 유흥 후기에서 얻은 일반적인 경험을 마곡의 특성에 맞게 재해석해야 합니다. 마곡은 신도시의 특성상 깔끔한 시설과 접근성이 뛰어난 곳이 많으므로 이를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0225.html">홍대 유흥 후기 말고 마곡 유흥 추천정보 확인하는 법</a>
+        <p class="post-item__summary">주말 저녁 홍대 유흥 후기 글을 참고하여 무작정 방문했다가 낯선 환경에 당황하는 사례가 많습니다. 지역마다 형성된 업계의 분위기가 다르기에, 마곡 지역을 방문할 계획이라면 해당 상권에 특화된 정보를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0226.html">홍대 유흥 후기 보며 합정 노래방 추천정보 비교하기</a>
+        <p class="post-item__summary">흔히 많은 이들이 홍대 유흥 후기 정보를 검색하며 노래방 방문 시 시간 제한이 없다고 오해하곤 합니다. 하지만 합정 인근의 수준 높은 시설들은 시간대별로 이용 가능 여부와 서비스 내용이 달라지는 경</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0227.html">홍대 유흥 후기 넘어 연남 클럽 추천정보 완벽 분석</a>
+        <p class="post-item__summary">성공적인 방문을 위해서는 음악적 취향, 접근성, 그리고 적절한 인원 구성이라는 세 가지 충족 조건이 필수적입니다. 홍대 유흥 후기 글들을 살펴보면 단순히 유명한 곳을 찾는 경우가 많지만, 연남 지역</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0228.html">홍대 유흥 후기 말고 합정 셔츠룸 추천정보 찾는 팁</a>
+        <p class="post-item__summary">당신은 과연 합정 셔츠룸을 방문할 때 어떤 기준을 가지고 업체를 선정하고 계십니까? 단순히 홍대 유흥 후기 내용에 의존하여 장소를 결정하고 있지는 않은지 스스로 되돌아볼 필요가 있습니다. 매번 바뀌</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0229.html">홍대 유흥 후기 신뢰성을 확인하고 선택하는 공덕 가라오케 추천정보</a>
+        <p class="post-item__summary">홍대 유흥 후기 관련 정보를 검색하다 보면 모호한 광고성 글이 많아 옥석을 가리기 어렵습니다. 특정 업체가 지나치게 홍보만 강조하고 있다면 객관적인 사실보다는 주관적인 찬사가 포함되었을 확률이 매우</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0230.html">홍대 유흥 후기 비교로 알아보는 합리적인 상수 마사지 추천정보</a>
+        <p class="post-item__summary">최근 홍대 유흥 후기 중에서 피로를 풀기 위한 장소를 찾는 분들이 많아졌습니다. 홍대 인근과 인접한 상수 지역은 마사지 샵이 밀집되어 있어 선택지가 다양하지만, 어디를 방문해야 할지 고민되는 것이 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0231.html">홍대 유흥 후기 속 노래방 방문 시 흔히 실패하는 망원 노래방 추천정보</a>
+        <p class="post-item__summary">홍대 유흥 후기 정보를 찾아보며 많은 사람이 기대감을 가지고 장소를 탐색합니다. 그러나 많은 이용객이 사전 조사 없이 방문하여 생각보다 낮은 서비스 질에 실망하는 사례가 적지 않습니다. 특히 망원 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/interview-001-35usal.html">홍대 유흥 후기 경험자에게 물어본 현실적인 판단 기준</a>
+        <p class="post-item__summary">홍대 지역은 다양한 유흥 업소가 밀집해 있어 후기만으로는 실제 분위기를 파악하기 어렵습니다. 따라서 후기를 볼 때는 작성자의 방문 시점, 이용한 서비스 유형, 그리고 동행 인원 수 같은 기본 정보를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">홍대 유흥 후기</a>
+        <p class="post-item__summary">홍대 유흥 관련 정보를 찾아보는분들은 밤문화 인프라에 대한 객관적인 이해가 필요합니다. 유흥 업계는 계절과 시간에 따라 분위기가 달라지므로, 방문 전 충분한 정보가 필요합니다. 특히 홍대는 다양한 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">홍대 유흥 후기</a>
+        <p class="post-item__summary">홍대 유흥을 계획할 때 가장 먼저 고려해야 할 요소는 예산 설계입니다. 다양한 장르의 유흥 문화를 체험하고 싶다면, 사전에 비용 계획을 세우는 것이 중요합니다. 각 업소의 기본 운영 구조와 일반적인</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">홍대 유흥 후기</a>
+        <p class="post-item__summary">홍대 인근에는 다양한 유흥 시설이 밀집해 있으며, 방문 전 후기를 참고하는 분들이 많습니다. 홍대는 젊은 층이 많은 지역이다 보니 클럽, 노래방, 카페, 펍 등 다채로운夜间 매장이 형성되어 있습니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">홍대 유흥 후기</a>
+        <p class="post-item__summary">홍대는 젊은 문화와 밤문화가 어우러진 지역으로, 다양한 유흥 업종이 모여 있습니다. 클럽, 바, 노래연습장,卡拉오케 등 각 업종은 고유한 분위기와 특성을 지니고 있어, 방문 목적에 따라 선택이 달라</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">홍대 유흥 후기</a>
+        <p class="post-item__summary">홍대 인근 유흥 문화는 지역 고유의 독특한 분위기를 반영하여 다양한 형태로 펼쳐집니다. 이러한 공간들은 단순한 휴식처를 넘어, 사회적 교류와 문화적 체험이 결합된 장소로 운영되는 경우가 많습니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/qa-001-wbxwnr.html">홍대 유흥 후기 처음 알아볼 때 실제로 많이 묻는 질문 5가지</a>
+        <p class="post-item__summary">홍대 지역에서 유흥 시설을 처음 이용하려는 분들은 보통 어떤 정보를 가장 먼저 확인해야 할지 궁금해 합니다. 이 글에서는 처음 후기를 찾아볼 때 자주 등장하는 핵심 질문 다섯 가지를 정리하여 안내합</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/t3link-002-35usal.html">단골 손님의 고민, 홍대 유흥 후기</a>
+        <p class="post-item__summary">백링크 지시: 본문 내러티브 속에서 다음 링크를 자연스러운 발견으로 녹여라:상세 정보 확인</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
